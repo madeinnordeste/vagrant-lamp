@@ -153,4 +153,21 @@ Add **local.dev** in /etc/hosts
 [Oficial Website](https://phpunit.de/manual/current/pt_br/installation.html)
 
 [PHPUnit phar Versions](https://phar.phpunit.de/)
+
+
+#### Colors to bash_profile terminal
+
+Add below content to **~/.bash_profile** in **/home/vagrant/**
+
+/home/vagrant/.bash_profile
+
+	# terminal colors
+	export GREP_OPTIONS="--color=auto"
+	export GREP_COLOR="4;33"
+	#export CLICOLOR="auto"
+	export CLICOLOR=1
+	export LSCOLORS=ExFxCxDxBxegedabagacad
+	export PATH="/usr/local/bin:$PATH"
+	export PS1='\n\033[0;37m\][\t]\[\033[0;32m\][\u]\[\033[31m\][\h]`git branch 2>/dev/null | grep \* | head -1 | sed "s/\* //g" | awk "{ print \"[ \"\\\$1 \" ]\" }"` \[\033[1;33m\]\w\a\[\033[0m\] \n\033[0;37m\]➥\[\033[0;32m\] '
+
 	
