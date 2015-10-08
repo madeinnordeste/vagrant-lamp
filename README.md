@@ -119,3 +119,9 @@ ll emails sent via local mail transport are intercepted by [MailHog](http://gith
 ### Composer
 
 Composer binary is installed globally (to `/usr/local/bin`), so you can simply call `composer` from any directory.
+
+
+### Host
+Add **local.dev** in /etc/hosts
+
+	sudo echo "192.168.33.10   local.dev" >> /etc/hosts
