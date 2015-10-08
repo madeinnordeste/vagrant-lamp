@@ -146,3 +146,11 @@ Composer binary is installed globally (to `/usr/local/bin`), so you can simply c
 Add **local.dev** in /etc/hosts
 
 	sudo echo "192.168.33.10   local.dev" >> /etc/hosts
+	
+
+### PHPUnit
+
+[Oficial Website](https://phpunit.de/manual/current/pt_br/installation.html)
+
+[PHPUnit phar Versions](https://phar.phpunit.de/)
+	
