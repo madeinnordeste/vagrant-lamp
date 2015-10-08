@@ -3,3 +3,4 @@
 !/data_bags/sites/local.json
 /public
 !/public/local.dev
+.DS_Store

@@ -74,6 +74,25 @@ a docroot explicitly by adding a `docroot` key in the json file.
 
 The guests local 3306 port is available on the host at port 33066. It is also available on every domain. Logging in can be done with username=root, password=vagrant.
 
+
+##### MySQL Remote Access
+
+The root account's localhost-only in the vast majority of default installations, are you certain you've allowed it to log in from the other system? From the MySQL reference manual:
+
+it means that there is no row in the user table with a Host value that matches the client host
+So, there's no % or 10.0.2.2 in the Host column at all. Check your current config:
+
+	select user,host from mysql.user where user='root';
+
+You likely want to create a new root entry with the same password as you have now.
+
+	create user 'root'@'10.0.2.2' identified by 'yourpassword';
+	grant all privileges on *.* to 'root'@'10.0.2.2' with grant option;
+	flush privileges;
+
+
+Source: [Access to mysql server via virtualbox](http://serverfault.com/questions/486710/access-to-mysql-server-via-virtualbox)
+
 ### phpMyAdmin
 
 phpMyAdmin is available on every domain. For example:
@@ -81,6 +100,8 @@ phpMyAdmin is available on every domain. For example:
     http://local.dev/phpmyadmin
 
 ### XDebug and webgrind
+
+
 
 XDebug is configured to connect back to your host machine on port 9000 when
 starting a debug session from a browser running on your host. A debug session is
