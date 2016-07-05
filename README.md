@@ -10,6 +10,7 @@ Requrements
 * Virtualbox
 * Vagrant >= 1.7.0
 * vagrant-omnibus plugin
+* vagrant-hostmanager plugin
 
 Installation:
 -------------
