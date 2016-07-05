@@ -42,13 +42,22 @@ Vagrant.configure("2") do |config|
   config.vm.network :public_network, bridge: "en1: Wi-Fi (AirPort)"
 
   # update /etc/host in host machine
-  config.vm.hostname = 'local.dev'
-  config.hostmanager.enabled = true
-  config.hostmanager.manage_host = true
-  config.hostmanager.manage_guest = true
-  config.hostmanager.ignore_private_ip = false
-  config.hostmanager.include_offline = true
-  #config.hostmanager.aliases = %w(example-box.localdomain example-box-alias)
+  if Vagrant.has_plugin? 'vagrant-hostmanager'
+    config.vm.hostname = 'local.dev'
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+    config.hostmanager.manage_guest = true
+    config.hostmanager.ignore_private_ip = false
+    config.hostmanager.include_offline = true
+    #config.hostmanager.aliases = %w(example-box.localdomain example-box-alias)
+  else
+    raise Vagrant::Errors::VagrantError.new,
+      "vagrant-hostmanager missing, please install the plugin:\n" +
+      "vagrant plugin install vagrant-hostmanager"
+  end
+
+  
+  
 
   config.hostmanager.ip_resolver = proc do |vm, resolving_vm|
     if hostname = (vm.ssh_info && vm.ssh_info[:host])
