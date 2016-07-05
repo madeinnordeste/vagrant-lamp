@@ -22,12 +22,24 @@ Install [vagrant-omnibus](https://github.com/chef/vagrant-omnibus) plugin
 
     $ vagrant plugin install vagrant-omnibus
 
+Install [vagrant-hostmanager](https://github.com/devopsgroup-io/vagrant-hostmanager) plugin
+
+    $ vagrant plugin install vagrant-hostmanager
+
 Clone this repository
 
 Go to the repository folder and launch the box
 
     $ cd [repo]
     $ vagrant up
+    
+To update **/etc/hosts** in host machine
+
+	$ vagrant hostmanager
+	
+This machine URL:
+
+	http://local.dev	
 
 What's inside:
 --------------
